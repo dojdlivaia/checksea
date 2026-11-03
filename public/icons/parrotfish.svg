@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Рыба-попугай -->
+  <ellipse cx="100" cy="100" rx="55" ry="45" fill="#00D9A3"/>
+  <!-- Чешуйки -->
+  <circle cx="80" cy="90" r="8" fill="#00B88A" opacity="0.5"/>
+  <circle cx="110" cy="85" r="8" fill="#00B88A" opacity="0.5"/>
+  <circle cx="95" cy="110" r="8" fill="#00B88A" opacity="0.5"/>
+  <!-- Клюв -->
+  <path d="M50,100 L35,95 L35,105 Z" fill="#FFD93D"/>
+  <!-- Плавники -->
+  <ellipse cx="100" cy="60" rx="30" ry="18" fill="#00E5B0"/>
+  <path d="M155,100 L175,85 L175,115 Z" fill="#00E5B0"/>
+  <!-- Глаз -->
+  <circle cx="75" cy="95" r="9" fill="white"/>
+  <circle cx="73" cy="95" r="6" fill="#333"/>
+  <circle cx="71" cy="93" r="2" fill="white"/>
+</svg>

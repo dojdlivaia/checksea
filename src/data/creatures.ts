@@ -18,7 +18,7 @@ export interface Creature {
 // Это перенаправляет на прямую ссылку с нужным размером
 
 export const creatures: Creature[] = [
-  // === РЫБЫ ===
+  // === РЫБЫ (25 видов) ===
   {
     id: 'clownfish',
     name: 'Рыба-клоун',
@@ -109,8 +109,143 @@ export const creatures: Creature[] = [
     category: 'fish',
     rare: false,
   },
+  {
+    id: 'emperor-angelfish',
+    name: 'Императорский ангел',
+    emoji: '👑',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Emperor_Angelfish,_Pomacanthus_imperator_at_Elphinstone_Reef,_Red_Sea,_Egypt_-SCUBA_(6194697417).jpg?width=400',
+    fact: 'Синий с жёлтыми полосками — настоящая корона рифа!',
+    category: 'fish',
+    rare: true,
+  },
+  {
+    id: 'bannerfish',
+    name: 'Баннерная рыба',
+    emoji: '🏳️',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Red_Sea_Bannerfish,_Heniochus_intermedius_at_Little_Brother,_Red_Sea,_Egypt_SCUBA.jpg?width=400',
+    fact: 'Белая с чёрными полосами и длинным спинным плавником',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'purple-tang',
+    name: 'Фиолетовый хирург',
+    emoji: '💜',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Cirujano_de_cola_amarilla_(Zebrasoma_xanthurum),_mar_Rojo,_Egipto,_2023-04-17,_DD_75.jpg?width=400',
+    fact: 'Фиолетовый с жёлтым хвостом — эндемик Красного моря!',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'moorish-idol',
+    name: 'Мавританский идол',
+    emoji: '🎭',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Moorish_Idol.jpg?width=400',
+    fact: 'Чёрно-белая с жёлтым — как в мультике!',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'rabbitfish',
+    name: 'Рыба-кролик',
+    emoji: '🐰',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Siganus_stellatus_Red_sea_02.jpg?width=400',
+    fact: 'Жёлтая рыбка с плавниками-шипами',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'wrasse',
+    name: 'Губан',
+    emoji: '🌈',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Thalassoma_hardwicke.jpg?width=400',
+    fact: 'Меняет цвет и пол в течение жизни!',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'scorpionfish',
+    name: 'Рыба-скорпион',
+    emoji: '🦂',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Red_Scorpionfish.jpg?width=400',
+    fact: 'Маскируется под камень — ядовитая!',
+    category: 'fish',
+    rare: true,
+  },
+  {
+    id: 'sweetlips',
+    name: 'Сладкогуб',
+    emoji: '👄',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Blackspotted_sweetlips,_Plectorhynchus_gaterinus,_at_Gota_Abu_Ramada,_Red_Sea,_Egypt,_at_Gota_Abu_Ramada,_Red_Sea,_Egypt_(6166548480).jpg?width=400',
+    fact: 'Толстые губы и полосатое тело',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'fusilier',
+    name: 'Фузилир',
+    emoji: '💙',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Blue_and_yellow_fusilier_(Caesio_teres)_(45998127474)_(cropped).jpg?width=400',
+    fact: 'Жёлто-синяя стайка — тысячи рыб вместе!',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'cardinalfish',
+    name: 'Кардиналка',
+    emoji: '❤️',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Eyeshadow_cardinalfish_at_Shaab_Mahmud.JPG?width=400',
+    fact: 'Маленькая красная рыбка с большими глазами',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'snapper',
+    name: 'Луциан',
+    emoji: '🔴',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Longspot_snapper_-_Lutjanus_fulviflamma.jpg?width=400',
+    fact: 'Красная хищная рыба с жёлтым хвостом',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'twoband-clownfish',
+    name: 'Двухполосный клоун',
+    emoji: '🧡',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Two-banded_clown_fish_-_Amphiprion_bicinctus_-_in_sea_anemone.jpg?width=400',
+    fact: 'Красноморский родственник рыбы-клоуна',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'sohal-tang',
+    name: 'Сохал-хирург',
+    emoji: '⚫',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Acanthurus_sohal.jpg?width=400',
+    fact: 'Чёрный с белыми полосами — очень агрессивный!',
+    category: 'fish',
+    rare: false,
+  },
+  {
+    id: 'emperor',
+    name: 'Рыба-император',
+    emoji: '🟡',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lethrinus_nebulosus_Spangled_Emperor.jpg?width=400',
+    fact: 'Большая переливающаяся рыба — король рифа',
+    category: 'fish',
+    rare: true,
+  },
+  {
+    id: 'grouper',
+    name: 'Группер',
+    emoji: '🐟',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Epinephelus_merra.jpg?width=400',
+    fact: 'Большая пятнистая рыба — может проглотить другую рыбу!',
+    category: 'fish',
+    rare: false,
+  },
 
-  // === КОРАЛЛЫ ===
+  // === КОРАЛЛЫ (4 вида) ===
   {
     id: 'brain-coral',
     name: 'Мозговой коралл',
@@ -148,7 +283,7 @@ export const creatures: Creature[] = [
     rare: true,
   },
 
-  // === ДРУГИЕ ===
+  // === ДРУГИЕ (6 видов) ===
   {
     id: 'turtle',
     name: 'Морская черепаха',

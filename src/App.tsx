@@ -160,6 +160,13 @@ export default function App() {
         <ProgressBar current={checkedIds.length} total={creatures.length} />
       </div>
 
+      {/* Подсказка */}
+      <div className="relative z-10 text-center px-4 py-1">
+        <p className="text-xs text-[#0B3B5C]/60 font-bold">
+          👆 Нажми на карточку, если увидел это существо под водой!
+        </p>
+      </div>
+
       {/* Фильтры */}
       <div className="relative z-10">
         <FilterChips active={filter} onChange={setFilter} />

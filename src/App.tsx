@@ -10,6 +10,7 @@ import FilterChips, { FilterType } from './components/FilterChips';
 import CreatureCard from './components/CreatureCard';
 import AchievementsScreen from './components/AchievementsScreen';
 import CertificateModal from './components/CertificateModal';
+import GalleryModal from './components/GalleryModal';
 
 type Screen = 'checklist' | 'achievements';
 
@@ -22,6 +23,7 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>('checklist');
   const [showCertificate, setShowCertificate] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [galleryCreature, setGalleryCreature] = useState<Creature | null>(null);
 
   // Тост
   const [toast, setToast] = useState<{ message: string; emoji: string; visible: boolean }>({
@@ -65,17 +67,27 @@ export default function App() {
     }
   }, [unlockedAchievements, setUnlockedAchievements]);
 
-  // Переключение карточки
-  const toggleCreature = useCallback((id: string) => {
+  // Открытие галереи
+  const openGallery = useCallback((creature: Creature) => {
+    setGalleryCreature(creature);
+  }, []);
+
+  // Закрытие галереи
+  const closeGallery = useCallback(() => {
+    setGalleryCreature(null);
+  }, []);
+
+  // Отметка из галереи
+  const markFromGallery = useCallback(() => {
+    if (!galleryCreature) return;
+    const id = galleryCreature.id;
     setCheckedIds((prev) => {
-      const newIds = prev.includes(id)
-        ? prev.filter((x) => x !== id)
-        : [...prev, id];
-      // Проверяем ачивки после обновления
+      if (prev.includes(id)) return prev;
+      const newIds = [...prev, id];
       setTimeout(() => checkAchievements(newIds), 100);
       return newIds;
     });
-  }, [setCheckedIds, checkAchievements]);
+  }, [galleryCreature, setCheckedIds, checkAchievements]);
 
   // Сброс
   const resetProgress = () => {
@@ -164,7 +176,7 @@ export default function App() {
       {/* Подсказка */}
       <div className="relative z-10 text-center px-4 py-1">
         <p className="text-xs text-[#0B3B5C]/60 font-bold">
-          👆 Нажми на карточку, если увидел это существо под водой!
+          👆 Нажми на карточку, чтобы рассмотреть фото!
         </p>
       </div>
 
@@ -180,7 +192,7 @@ export default function App() {
             key={creature.id}
             creature={creature}
             checked={checkedIds.includes(creature.id)}
-            onToggle={() => toggleCreature(creature.id)}
+            onToggle={() => openGallery(creature)}
           />
         ))}
       </div>
@@ -261,6 +273,14 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Галерея */}
+      <GalleryModal
+        creature={galleryCreature}
+        onClose={closeGallery}
+        onMarkSeen={markFromGallery}
+        isChecked={galleryCreature ? checkedIds.includes(galleryCreature.id) : false}
+      />
     </div>
   );
 }

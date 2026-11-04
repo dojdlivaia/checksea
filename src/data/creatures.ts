@@ -342,4 +342,102 @@ export const creatures: Creature[] = [
     ],
     fact: 'Ходит на ножках-присосках', category: 'other', rare: false 
   },
+
+  // === ДОПОЛНИТЕЛЬНЫЕ ===
+  { 
+    id: 'chromis', name: 'Черно-белый хромис', emoji: '🖤', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Exquisite_Butterflyfish,_Chaetodon_austriacus_at_Marsa_Shouna,_Red_Sea,_Egypt_-SCUBA_(6234832970).jpg?width=600',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Blacktail_Butterflyfish_-_Chaetodon_austriacus.jpg?width=600',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Chaetodon_austriacus_in_Red_Sea_Aquarium_bis.jpg?width=600'
+    ],
+    fact: 'Эндемик Красного моря — живёт только здесь!', category: 'fish', rare: false 
+  },
+  { 
+    id: 'tridacna', name: 'Тридакна', emoji: '🐚', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Giant_Clam_(Tridacna).jpg?width=600',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Large_Giant_Clam_(Tridacna_maxima)_(6059116842).jpg?width=600',
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tridacna_squamosa_(Giant_clam).jpg?width=600'
+    ],
+    fact: 'Гигантский моллюск — может весить 200 кг!', category: 'other', rare: false 
+  },
+  { 
+    id: 'diver', name: 'Аквалангист', emoji: '🤿', 
+    images: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Scuba_diving_-_Flickr_-_christopher_brown.jpg/600px-Scuba_diving_-_Flickr_-_christopher_brown.jpg'
+    ],
+    fact: 'Это ты! Или твой друг в маске и ластах!', category: 'other', rare: true 
+  },
+
+  // === ВАРИАНТЫ ДЛЯ ЧЕЛЛЕНДЖЕЙ ===
+  
+  // Тридакны разных цветов
+  { 
+    id: 'tridacna-blue', name: 'Тридакна синяя', emoji: '💙', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Giant_Clam_(Tridacna).jpg?width=600'
+    ],
+    fact: 'Синий моллюск — редкость!', category: 'other', rare: true 
+  },
+  { 
+    id: 'tridacna-green', name: 'Тридакна зелёная', emoji: '💚', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Large_Giant_Clam_(Tridacna_maxima)_(6059116842).jpg?width=600'
+    ],
+    fact: 'Зелёный оттенок от водорослей-симбионтов', category: 'other', rare: false 
+  },
+  { 
+    id: 'tridacna-purple', name: 'Тридакна фиолетовая', emoji: '💜', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Tridacna_squamosa_(Giant_clam).jpg?width=600'
+    ],
+    fact: 'Фиолетовая мантия — красиво!', category: 'other', rare: true 
+  },
+  { 
+    id: 'tridacna-orange', name: 'Тридакна оранжевая', emoji: '🧡', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Giant_clam_(Tridacna_gigas)_Michaelmas_Cay.jpg?width=600'
+    ],
+    fact: 'Оранжевый гигант — как закат!', category: 'other', rare: true 
+  },
+
+  // Губаны разных видов
+  { 
+    id: 'wrasse-blue', name: 'Губан синий', emoji: '💙', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Thalassoma_hardwicke.jpg?width=600'
+    ],
+    fact: 'Синий с зелёным — меняет цвет!', category: 'fish', rare: false 
+  },
+  { 
+    id: 'wrasse-green', name: 'Губан зелёный', emoji: '💚', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Thalassoma_bifasciatum_(blue-headed_wrasse)_in_juvenile_stage.jpg?width=600'
+    ],
+    fact: 'Зелёный подросток — станет синим!', category: 'fish', rare: false 
+  },
+  { 
+    id: 'wrasse-yellow', name: 'Губан жёлтый', emoji: '💛', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Thalassoma_lunare.jpg?width=600'
+    ],
+    fact: 'Жёлтый с луной на хвосте', category: 'fish', rare: false 
+  },
+  { 
+    id: 'wrasse-red', name: 'Губан красный', emoji: '❤️', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Thalassoma_quinquevittatum.jpg?width=600'
+    ],
+    fact: 'Красный полосатый — как закат!', category: 'fish', rare: true 
+  },
+
+  // Дополнительные клоуны
+  { 
+    id: 'clownfish-baby', name: 'Малыш-клоун', emoji: '🐣', 
+    images: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Common_clownfish.jpg?width=600'
+    ],
+    fact: 'Маленький клоун — ещё ребёнок!', category: 'fish', rare: false 
+  },
 ];

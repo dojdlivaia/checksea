@@ -15,6 +15,7 @@ export default function CreatureCard({ creature, checked, onToggle }: CreatureCa
   return (
     <button
       onClick={onToggle}
+      aria-label={`Открыть галерею: ${creature.name}`}
       className={`
         relative w-full rounded-3xl overflow-hidden text-left transition-all duration-300
         shadow-lg active:scale-[0.97] hover:shadow-xl hover:-translate-y-0.5
@@ -34,7 +35,7 @@ export default function CreatureCard({ creature, checked, onToggle }: CreatureCa
         {/* Реальное фото */}
         {!imgError ? (
           <img
-            src={creature.image}
+            src={creature.images[0]}
             alt={creature.name}
             className={`w-full h-full object-cover transition-all duration-500 ${
               imgLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
@@ -57,6 +58,13 @@ export default function CreatureCard({ creature, checked, onToggle }: CreatureCa
         {creature.rare && (
           <span className="absolute top-2 right-2 bg-[#FFD93D] text-[#0B3B5C] text-xs font-bold px-2 py-1 rounded-full shadow-md flex items-center gap-0.5">
             💎 Редкий
+          </span>
+        )}
+
+        {/* Индикатор количества фото */}
+        {creature.images.length > 1 && (
+          <span className="absolute bottom-2 right-2 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+            📷 {creature.images.length}
           </span>
         )}
 

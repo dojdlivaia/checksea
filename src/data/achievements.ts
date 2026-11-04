@@ -33,16 +33,16 @@ export const achievements: Achievement[] = [
   {
     id: 'marine-biologist',
     name: 'Морской биолог',
-    description: 'Отметь 20 обитателей',
+    description: 'Отметь 25 обитателей',
     emoji: '🔬',
-    condition: (checkedIds) => checkedIds.length >= 20,
+    condition: (checkedIds) => checkedIds.length >= 25,
   },
   {
     id: 'legend',
     name: 'Легенда Макади',
-    description: 'Отметь всех 35 обитателей!',
+    description: 'Отметь всех 40 обитателей!',
     emoji: '🏆',
-    condition: (checkedIds) => checkedIds.length >= 35,
+    condition: (checkedIds) => checkedIds.length >= 40,
   },
   {
     id: 'rare-find',

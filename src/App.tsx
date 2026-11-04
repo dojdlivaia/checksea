@@ -130,6 +130,7 @@ export default function App() {
       <AchievementsScreen
         achievements={achievements}
         unlockedIds={unlockedAchievements}
+        checkedIds={checkedIds}
         onBack={() => setScreen('checklist')}
       />
     );

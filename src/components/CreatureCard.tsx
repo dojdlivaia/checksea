@@ -1,6 +1,6 @@
-// Карточка морского обитателя с SVG-иконкой
+// Карточка морского обитателя с реальным фото
+import { useState } from 'react';
 import { Creature } from '../data/creatures';
-import { creatureIcons } from './CreatureIcons';
 
 interface CreatureCardProps {
   creature: Creature;
@@ -9,7 +9,8 @@ interface CreatureCardProps {
 }
 
 export default function CreatureCard({ creature, checked, onToggle }: CreatureCardProps) {
-  const IconComponent = creatureIcons[creature.id];
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   return (
     <button
@@ -23,18 +24,34 @@ export default function CreatureCard({ creature, checked, onToggle }: CreatureCa
         }
       `}
     >
-      {/* SVG-иконка */}
-      <div className={`relative w-full h-36 md:h-40 overflow-hidden flex items-center justify-center ${
-        checked ? 'bg-gradient-to-b from-[#0FB3C4]/30 to-[#0B3B5C]/30' : 'bg-gradient-to-b from-[#0FB3C4]/10 to-[#0B3B5C]/10'
-      }`}>
-        {IconComponent ? (
-          <IconComponent className="w-28 h-28 md:w-32 md:h-32 drop-shadow-md" />
+      {/* Изображение */}
+      <div className="relative w-full h-36 md:h-40 bg-gradient-to-b from-[#0FB3C4]/10 to-[#0B3B5C]/20 overflow-hidden">
+        {/* Скелетон-загрузка */}
+        {!imgLoaded && !imgError && (
+          <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-[#0FB3C4]/10 via-[#0FB3C4]/20 to-[#0FB3C4]/10" />
+        )}
+
+        {/* Реальное фото */}
+        {!imgError ? (
+          <img
+            src={creature.image}
+            alt={creature.name}
+            className={`w-full h-full object-cover transition-all duration-500 ${
+              imgLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            } ${checked ? 'brightness-90' : ''}`}
+            loading="lazy"
+            onLoad={() => setImgLoaded(true)}
+            onError={() => setImgError(true)}
+          />
         ) : (
-          <span className="text-6xl">{creature.emoji}</span>
+          /* Fallback — эмодзи */
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-[#0FB3C4]/20 to-[#0B3B5C]/10">
+            <span className="text-6xl">{creature.emoji}</span>
+          </div>
         )}
 
         {/* Градиент снизу для читаемости текста */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
 
         {/* Редкий значок */}
         {creature.rare && (

@@ -811,4 +811,206 @@ export const creatureIcons: Record<string, React.FC<{ className?: string }>> = {
       <line x1="80" y1="70" x2="65" y2="50" stroke="#34495E" strokeWidth="3"/>
     </svg>
   ),
+
+  // ЧЕРНО-БЕЛЫЙ ХРОМИС
+  'chromis': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="chromis-body" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FFFFFF"/>
+          <stop offset="50%" stopColor="#F5F5F5"/>
+          <stop offset="100%" stopColor="#2C3E50"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="100" rx="50" ry="60" fill="url(#chromis-body)"/>
+      <rect x="70" y="60" width="60" height="15" fill="#2C3E50"/>
+      <rect x="70" y="125" width="60" height="15" fill="#2C3E50"/>
+      <ellipse cx="100" cy="50" rx="25" ry="12" fill="#34495E"/>
+      <circle cx="85" cy="95" r="8" fill="white"/>
+      <circle cx="83" cy="95" r="5" fill="#333"/>
+      <circle cx="81" cy="93" r="2" fill="white"/>
+    </svg>
+  ),
+
+  // ТРИДАКНА
+  'tridacna': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tridacna-body">
+          <stop offset="0%" stopColor="#5DADE2"/>
+          <stop offset="100%" stopColor="#3498DB"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="110" rx="60" ry="50" fill="url(#tridacna-body)"/>
+      <path d="M50,110 Q75,90 100,110 Q125,90 150,110" stroke="#2E86DE" strokeWidth="3" fill="none"/>
+      <path d="M55,125 Q80,105 105,125 Q130,105 155,125" stroke="#2E86DE" strokeWidth="3" fill="none"/>
+      <ellipse cx="100" cy="90" rx="40" ry="20" fill="#85C1E9" opacity="0.6"/>
+    </svg>
+  ),
+
+  // АКВАЛАНГИСТ
+  'diver': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="diver-body" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#2C3E50"/>
+          <stop offset="100%" stopColor="#34495E"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="80" rx="25" ry="30" fill="url(#diver-body)"/>
+      <rect x="75" y="100" width="50" height="60" rx="10" fill="#34495E"/>
+      <circle cx="100" cy="75" r="15" fill="#5DADE2" opacity="0.8"/>
+      <rect x="85" y="160" width="12" height="25" fill="#2C3E50"/>
+      <rect x="103" y="160" width="12" height="25" fill="#2C3E50"/>
+      <circle cx="95" cy="72" r="3" fill="white"/>
+      <circle cx="105" cy="72" r="3" fill="white"/>
+    </svg>
+  ),
+
+  // ТРИДАКНА СИНИЯ
+  'tridacna-blue': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tridacna-blue-body">
+          <stop offset="0%" stopColor="#5DADE2"/>
+          <stop offset="100%" stopColor="#2E86DE"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="110" rx="60" ry="50" fill="url(#tridacna-blue-body)"/>
+      <path d="M50,110 Q75,90 100,110 Q125,90 150,110" stroke="#1B4F72" strokeWidth="3" fill="none"/>
+      <ellipse cx="100" cy="90" rx="40" ry="20" fill="#85C1E9" opacity="0.6"/>
+    </svg>
+  ),
+
+  // ТРИДАКНА ЗЕЛЁНАЯЯ
+  'tridacna-green': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tridacna-green-body">
+          <stop offset="0%" stopColor="#58D68D"/>
+          <stop offset="100%" stopColor="#27AE60"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="110" rx="60" ry="50" fill="url(#tridacna-green-body)"/>
+      <path d="M50,110 Q75,90 100,110 Q125,90 150,110" stroke="#1E8449" strokeWidth="3" fill="none"/>
+      <ellipse cx="100" cy="90" rx="40" ry="20" fill="#82E0AA" opacity="0.6"/>
+    </svg>
+  ),
+
+  // ТРИДАКНА ФИОЛЕТОВАЯ
+  'tridacna-purple': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tridacna-purple-body">
+          <stop offset="0%" stopColor="#AF7AC5"/>
+          <stop offset="100%" stopColor="#8E44AD"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="110" rx="60" ry="50" fill="url(#tridacna-purple-body)"/>
+      <path d="M50,110 Q75,90 100,110 Q125,90 150,110" stroke="#6C3483" strokeWidth="3" fill="none"/>
+      <ellipse cx="100" cy="90" rx="40" ry="20" fill="#D2B4DE" opacity="0.6"/>
+    </svg>
+  ),
+
+  // ТРИДАКНА ОРАНЖЕВАЯ
+  'tridacna-orange': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tridacna-orange-body">
+          <stop offset="0%" stopColor="#F39C12"/>
+          <stop offset="100%" stopColor="#E67E22"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="110" rx="60" ry="50" fill="url(#tridacna-orange-body)"/>
+      <path d="M50,110 Q75,90 100,110 Q125,90 150,110" stroke="#BA4A00" strokeWidth="3" fill="none"/>
+      <ellipse cx="100" cy="90" rx="40" ry="20" fill="#F8C471" opacity="0.6"/>
+    </svg>
+  ),
+
+  // ГУБАН СИНИЙ
+  'wrasse-blue': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wrasse-blue-body" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#5DADE2"/>
+          <stop offset="100%" stopColor="#2E86DE"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="100" rx="55" ry="35" fill="url(#wrasse-blue-body)"/>
+      <path d="M55,90 Q100,85 145,90" stroke="#1B4F72" strokeWidth="4" fill="none"/>
+      <ellipse cx="100" cy="70" rx="25" ry="12" fill="#3498DB"/>
+      <circle cx="75" cy="95" r="7" fill="white"/>
+      <circle cx="73" cy="95" r="4" fill="#333"/>
+    </svg>
+  ),
+
+  // ГУБАН ЗЕЛЁНЫЙ
+  'wrasse-green': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wrasse-green-body" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#58D68D"/>
+          <stop offset="100%" stopColor="#27AE60"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="100" rx="55" ry="35" fill="url(#wrasse-green-body)"/>
+      <path d="M55,90 Q100,85 145,90" stroke="#1E8449" strokeWidth="4" fill="none"/>
+      <ellipse cx="100" cy="70" rx="25" ry="12" fill="#2ECC71"/>
+      <circle cx="75" cy="95" r="7" fill="white"/>
+      <circle cx="73" cy="95" r="4" fill="#333"/>
+    </svg>
+  ),
+
+  // ГУБАН ЖЁЛТЫЙ
+  'wrasse-yellow': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wrasse-yellow-body" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#F4D03F"/>
+          <stop offset="100%" stopColor="#F1C40F"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="100" rx="55" ry="35" fill="url(#wrasse-yellow-body)"/>
+      <path d="M55,90 Q100,85 145,90" stroke="#B7950B" strokeWidth="4" fill="none"/>
+      <ellipse cx="100" cy="70" rx="25" ry="12" fill="#F7DC6F"/>
+      <circle cx="75" cy="95" r="7" fill="white"/>
+      <circle cx="73" cy="95" r="4" fill="#333"/>
+    </svg>
+  ),
+
+  // ГУБАН КРАСНЫЙ
+  'wrasse-red': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wrasse-red-body" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#EC7063"/>
+          <stop offset="100%" stopColor="#E74C3C"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="100" cy="100" rx="55" ry="35" fill="url(#wrasse-red-body)"/>
+      <path d="M55,90 Q100,85 145,90" stroke="#922B21" strokeWidth="4" fill="none"/>
+      <ellipse cx="100" cy="70" rx="25" ry="12" fill="#F1948A"/>
+      <circle cx="75" cy="95" r="7" fill="white"/>
+      <circle cx="73" cy="95" r="4" fill="#333"/>
+    </svg>
+  ),
+
+  // МАЛЫШ-КЛОУН
+  'clownfish-baby': ({ className }) => (
+    <svg className={className} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="clown-baby-body">
+          <stop offset="0%" stopColor="#FFB380"/>
+          <stop offset="100%" stopColor="#FF8C5A"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="100" cy="100" rx="35" ry="25" fill="url(#clown-baby-body)"/>
+      <rect x="80" y="80" width="10" height="40" rx="5" fill="white"/>
+      <rect x="110" y="80" width="10" height="40" rx="5" fill="white"/>
+      <ellipse cx="100" cy="80" rx="15" ry="10" fill="#FFB380"/>
+      <circle cx="90" cy="95" r="5" fill="white"/>
+      <circle cx="89" cy="95" r="3" fill="#333"/>
+      <circle cx="88" cy="94" r="1" fill="white"/>
+    </svg>
+  ),
 };

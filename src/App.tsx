@@ -2,6 +2,7 @@
 import { useState, useCallback, useMemo } from 'react';
 import { creatures, Creature } from './data/creatures';
 import { achievements } from './data/achievements';
+import { challenges } from './data/challenges';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import Bubbles from './components/Bubbles';
 import Toast from './components/Toast';
@@ -9,15 +10,17 @@ import ProgressBar from './components/ProgressBar';
 import FilterChips, { FilterType } from './components/FilterChips';
 import CreatureCard from './components/CreatureCard';
 import AchievementsScreen from './components/AchievementsScreen';
+import ChallengesScreen from './components/ChallengesScreen';
 import CertificateModal from './components/CertificateModal';
 import GalleryModal from './components/GalleryModal';
 
-type Screen = 'checklist' | 'achievements';
+type Screen = 'checklist' | 'achievements' | 'challenges';
 
 export default function App() {
   // Состояния
   const [checkedIds, setCheckedIds] = useLocalStorage<string[]>('makadi-checked', []);
   const [unlockedAchievements, setUnlockedAchievements] = useLocalStorage<string[]>('makadi-achievements', []);
+  const [completedChallenges, setCompletedChallenges] = useLocalStorage<string[]>('makadi-challenges', []);
   const [childName, setChildName] = useLocalStorage<string>('makadi-name', '');
   const [filter, setFilter] = useState<FilterType>('all');
   const [screen, setScreen] = useState<Screen>('checklist');
@@ -67,6 +70,37 @@ export default function App() {
     }
   }, [unlockedAchievements, setUnlockedAchievements]);
 
+  // Проверка челленджей
+  const checkChallenges = useCallback((newCheckedIds: string[]) => {
+    const newCompleted: string[] = [];
+
+    challenges.forEach((challenge) => {
+      if (!completedChallenges.includes(challenge.id)) {
+        if (challenge.type === 'specific') {
+          const found = challenge.creatureIds.filter(id => newCheckedIds.includes(id));
+          if (found.length >= challenge.target) {
+            newCompleted.push(challenge.id);
+          }
+        }
+      }
+    });
+
+    if (newCompleted.length > 0) {
+      const allCompleted = [...completedChallenges, ...newCompleted];
+      setCompletedChallenges(allCompleted);
+
+      // Показываем тост для первого выполненного челленджа
+      const firstNew = challenges.find((c) => c.id === newCompleted[0]);
+      if (firstNew) {
+        setToast({
+          message: `Челлендж: ${firstNew.name}`,
+          emoji: firstNew.emoji,
+          visible: true,
+        });
+      }
+    }
+  }, [completedChallenges, setCompletedChallenges]);
+
   // Открытие галереи
   const openGallery = useCallback((creature: Creature) => {
     setGalleryCreature(creature);
@@ -84,15 +118,19 @@ export default function App() {
     setCheckedIds((prev) => {
       if (prev.includes(id)) return prev;
       const newIds = [...prev, id];
-      setTimeout(() => checkAchievements(newIds), 100);
+      setTimeout(() => {
+        checkAchievements(newIds);
+        checkChallenges(newIds);
+      }, 100);
       return newIds;
     });
-  }, [galleryCreature, setCheckedIds, checkAchievements]);
+  }, [galleryCreature, setCheckedIds, checkAchievements, checkChallenges]);
 
   // Сброс
   const resetProgress = () => {
     setCheckedIds([]);
     setUnlockedAchievements([]);
+    setCompletedChallenges([]);
     setShowResetConfirm(false);
   };
 
@@ -143,6 +181,18 @@ export default function App() {
         achievements={achievements}
         unlockedIds={unlockedAchievements}
         checkedIds={checkedIds}
+        onBack={() => setScreen('checklist')}
+      />
+    );
+  }
+
+  // Экран челленджей
+  if (screen === 'challenges') {
+    return (
+      <ChallengesScreen
+        challenges={challenges}
+        checkedIds={checkedIds}
+        completedChallenges={completedChallenges}
         onBack={() => setScreen('checklist')}
       />
     );
@@ -215,16 +265,16 @@ export default function App() {
             🏆 Ачивки
           </button>
           <button
+            onClick={() => setScreen('challenges')}
+            className="flex-1 py-3 rounded-2xl bg-[#9B59B6] text-white font-bold text-sm shadow-md active:scale-95"
+          >
+            🎯 Челленджи
+          </button>
+          <button
             onClick={() => setShowCertificate(true)}
             className="flex-1 py-3 rounded-2xl bg-[#0FB3C4] text-white font-bold text-sm shadow-md active:scale-95"
           >
             🎓 Сертификат
-          </button>
-          <button
-            onClick={shareResult}
-            className="flex-1 py-3 rounded-2xl bg-[#FF6B6B] text-white font-bold text-sm shadow-md active:scale-95"
-          >
-            📤 Поделиться
           </button>
           <button
             onClick={() => setShowResetConfirm(true)}

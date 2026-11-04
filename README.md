@@ -35,57 +35,30 @@ git remote add origin https://github.com/ВАШ_ЛОГИН/makadi-checklist.git
 git push -u origin main
 ```
 
-### Шаг 3: Включите GitHub Pages
+### Шаг 3: Включите GitHub Pages (АВТОМАТИЧЕСКИЙ ДЕПЛОЙ)
+
+Workflow уже создан в `.github/workflows/deploy.yml`! Просто:
 
 1. Зайдите в **Settings** → **Pages**
 2. В разделе **Source** выберите:
-   - Branch: `main` (или `gh-pages` если используете деплой)
-   - Folder: `/ (root)` если файлы в корне, или настройте деплой
+   - Source: **GitHub Actions**
+3. Сохраните
 
-#### Вариант А: Деплой через GitHub Actions (рекомендуется)
+После push в main, сайт автоматически соберётся и задеплоится.
 
-Создайте файл `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [main]
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
-
-После пуша сайт будет доступен по адресу:
+Сайт будет доступен по адресу:
 `https://ВАШ_ЛОГИН.github.io/makadi-checklist/`
-
-#### Вариант Б: Простой деплой (без сборки)
-
-Если хотите залить только готовые файлы из папки `dist/`:
-
-```bash
-# Скопируйте содержимое dist/ в ветку gh-pages
-git checkout -b gh-pages
-# Скопируйте файлы из dist/ в корень
-git add .
-git commit -m "Deploy"
-git push origin gh-pages
-```
 
 ### Шаг 4: Откройте сайт
 
 Перейдите по ссылке: `https://ВАШ_ЛОГИН.github.io/makadi-checklist/`
+
+⚠️ **Если белая страница:**
+1. Подождите 2-3 минуты после первого push
+2. Откройте DevTools (F12) → Console — проверьте ошибки
+3. Убедитесь что в Settings → Pages выбрано "GitHub Actions" как Source
+4. Проверьте что Actions → Workflow завершился успешно (зелёная галочка)
+5. Попробуйте открыть в режиме инкогнито (кэш)
 
 На телефоне: откройте сайт → «Добавить на главный экран» для PWA-режима.
 

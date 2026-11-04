@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Рыба-клоун -->
+  <ellipse cx="100" cy="100" rx="60" ry="40" fill="#FF6B35"/>
+  <!-- Белые полосы -->
+  <rect x="70" y="60" width="15" height="80" rx="7" fill="white"/>
+  <rect x="115" y="60" width="15" height="80" rx="7" fill="white"/>
+  <!-- Чёрные обводки полос -->
+  <rect x="68" y="60" width="2" height="80" fill="#333"/>
+  <rect x="87" y="60" width="2" height="80" fill="#333"/>
+  <rect x="113" y="60" width="2" height="80" fill="#333"/>
+  <rect x="132" y="60" width="2" height="80" fill="#333"/>
+  <!-- Плавники -->
+  <ellipse cx="100" cy="65" rx="25" ry="15" fill="#FF8C5A"/>
+  <path d="M160,100 L180,85 L180,115 Z" fill="#FF8C5A"/>
+  <!-- Глаз -->
+  <circle cx="80" cy="95" r="8" fill="white"/>
+  <circle cx="78" cy="95" r="5" fill="#333"/>
+  <circle cx="76" cy="93" r="2" fill="white"/>
+  <!-- Рот -->
+  <path d="M65,105 Q75,110 85,105" stroke="#333" stroke-width="2" fill="none"/>
+</svg>
